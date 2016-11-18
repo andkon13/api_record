@@ -2,18 +2,22 @@
 
 namespace app\models;
 
-use Yii;
+use app\components\ApiRecord;
 
 /**
  * This is the model class for table "product".
  *
  * @property integer $id
  * @property integer $provider_id
- * @property string $name
- * @property string $img
+ * @property string  $name
+ * @property string  $img
  */
-class Product extends \yii\db\ActiveRecord
+class Product extends ApiRecord
 {
+    protected static $replaceFields = [
+        'provider_id' => 'db_id',
+    ];
+
     /**
      * @inheritdoc
      */
@@ -39,10 +43,10 @@ class Product extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id'          => 'ID',
             'provider_id' => 'Provider ID',
-            'name' => 'Name',
-            'img' => 'Img',
+            'name'        => 'Name',
+            'img'         => 'Img',
         ];
     }
 }

@@ -2,16 +2,20 @@
 
 namespace app\models;
 
-use Yii;
+use app\components\ApiRecord;
 
 /**
  * This is the model class for table "provider".
  *
  * @property integer $id
- * @property string $name
+ * @property string  $name
  */
-class Provider extends \yii\db\ActiveRecord
+class Provider extends ApiRecord
 {
+    protected static $replaceFields = [
+        'name' => 'db_name',
+    ];
+
     /**
      * @inheritdoc
      */
@@ -36,7 +40,7 @@ class Provider extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id'   => 'ID',
             'name' => 'Name',
         ];
     }
