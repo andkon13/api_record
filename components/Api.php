@@ -17,7 +17,7 @@ use yii\httpclient\Client;
  */
 class Api
 {
-    private static $baseUrl = 'http://api.sliza.ru/';
+    private static $baseUrl = 'http://api.dev/';
 
     /**
      * Делает непосредственный запрос к апи
